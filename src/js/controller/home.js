@@ -1,12 +1,12 @@
 
-function HomeController ($stateParams) {
+function HomeController ($stateParams, CategoryService) {
 
 	let vm = this;
 
 	vm.pin = [];
 
 	function init () {
-    ContactService.allCategories().then((resp) => {
+    CategoryService.allCategories().then((resp) => {
       vm.pin = resp.data;
       console.log(vm.pin)
     });
@@ -14,4 +14,5 @@ function HomeController ($stateParams) {
 	init();
 };
 
-HomeController.$inject = ['$stateParams']    
+HomeController.$inject = ['$stateParams', 'CategoryService']  
+export {HomeController}  

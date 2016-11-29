@@ -5,8 +5,8 @@ function ProfileController ($state) {
 
   	this.createUser = createUser;
 
-  	function addContact (cont) {
-    	ContactService.createUser(cont).then((resp) => {
+  	function createUser (pin) {
+    	.createUser(cont).then((resp) => {
       		$state.go('home');
     	});
   	};
