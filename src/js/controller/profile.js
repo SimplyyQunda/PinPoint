@@ -1,17 +1,17 @@
 
-function ProfileController ($state) {
+function ProfileController ($state, CategoryService) {
 
 	let vm = this;
 
   	this.createUser = createUser;
 
   	function createUser (pin) {
-    	.createUser(cont).then((resp) => {
-      		$state.go('home');
+    	CategoryService.createUser(pin).then((resp) => {
+      		$state.go('home')
     	});
   	};
 
 };
 
-ProfileController.$inject = ['$state'];
+ProfileController.$inject = ['$state', 'CategoryService'];
 export { ProfileController };

@@ -15,7 +15,7 @@ function routerConfig ($stateProvider, $urlRouterProvider){
 	    .state('root.profile', {
 	      url: '/profile',
 	      templateUrl: 'templates/profile.tpl.html',
-	      controller: 'ProfileController as profiles'
+	      controller: 'ProfileController as profile'
 	    })
 	    .state('root.about', {
 	      url: '/about',
