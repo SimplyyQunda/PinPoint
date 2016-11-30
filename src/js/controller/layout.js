@@ -5,7 +5,7 @@ function LayoutController () {
   vm.clickMe = clickMe;
 
   function clickMe () {
-    // console.log("its been clicked");
+    console.log("its been clicked");
   }
 }
 
