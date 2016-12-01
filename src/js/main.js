@@ -2,6 +2,7 @@ import angular from 'angular';
 import api_key from "./token";
 import 'angular-cookies';
 
+import { run } from "./run";
 import { routerConfig } from './route'
 
 import { HomeController } from './controller/home';
@@ -17,6 +18,7 @@ import 'angular-ui-router';
 angular
   .module('app', ['ui.router','ngCookies'])
   .config(routerConfig)
+  .run(run)
   .controller('CategoryController', CategoryController)
   .controller('LayoutController', LayoutController)
   .controller('HomeController', HomeController)
