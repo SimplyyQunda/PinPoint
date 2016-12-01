@@ -1,4 +1,4 @@
-function LoginController (CategoryService, $state, $rootScope) {
+function LoginController (CategoryService,$state,$rootScope) {
 
   let vm = this;
 
@@ -19,5 +19,5 @@ function LoginController (CategoryService, $state, $rootScope) {
 
 };
 
-LoginController.$inject = ['CategoryService', '$state', '$rootScope'];
+LoginController.$inject = ['CategoryService','$state','$rootScope'];
 export { LoginController };

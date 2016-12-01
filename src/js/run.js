@@ -9,7 +9,7 @@ $rootScope.$on('$stateChangeStart', (event, toState) => {
 });
 
 function invalidRoute (toState) {
-	let loggedIn = UserService.isLoggedIn();
+	let loggedIn = CategoryService.isLoggedIn();
     let safeRoutes = ['root.home', 'root.login', 'root.register'];
 
      return !(loggedIn || safeRoutes.includes(toState.name));

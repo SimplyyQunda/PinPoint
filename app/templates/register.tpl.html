@@ -1,0 +1,17 @@
+<h3 class="title">Sign Up</h3>
+
+<form name="signup-form" ng-submit="register.createUser(user)">
+  <p class="control">
+    <input name="username" type="text" placeholder="Username"
+           ng-model="user.username" required />
+  </p>
+  <p class="control">
+    <input name="email" type="text" placeholder="jane@doe.videos"
+           ng-model="user.email" required />
+  </p>
+  <p class="control">
+    <input name="password" type="password" placeholder="hunter2"
+           ng-model="user.password" required />
+  </p>
+  <button>Create Profile</button>
+</form>

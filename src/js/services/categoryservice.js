@@ -1,6 +1,6 @@
-import { SERVER } from "../server";
+const SERVER = 'https://pure-refuge-11026.herokuapp.com/';
 
-function CategoryService ($http, $cookies, SERVER) {
+function CategoryService ($http, $cookies) {
 
   this.allCategories = allCategories;	  
   this.login = login;
@@ -52,5 +52,5 @@ function CategoryService ($http, $cookies, SERVER) {
 
 };
 
-CategoryService.$inject = ['$http', '$cookies', 'SERVER'];
+CategoryService.$inject = ['$http', '$cookies'];
 export { CategoryService };
