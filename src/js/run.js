@@ -1,4 +1,4 @@
-function run ($rootScope, $state, CategoryService) {
+function run ($rootScope, $state, UserService) {
 
 $rootScope.$on('$stateChangeStart', (event, toState) => {
 	
@@ -9,7 +9,7 @@ $rootScope.$on('$stateChangeStart', (event, toState) => {
 });
 
 function invalidRoute (toState) {
-	let loggedIn = CategoryService.isLoggedIn();
+	let loggedIn = UserService.isLoggedIn();
     let safeRoutes = ['root.home', 'root.login', 'root.register'];
 
      return !(loggedIn || safeRoutes.includes(toState.name));
@@ -17,5 +17,5 @@ function invalidRoute (toState) {
 
 };
 
-run.$inject = ['$rootScope', '$state', 'CategoryService'];
+run.$inject = ['$rootScope', '$state', 'UserService'];
 export { run };

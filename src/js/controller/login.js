@@ -1,13 +1,13 @@
-function LoginController (CategoryService,$state,$rootScope) {
+function LoginController (UserService,$state,$rootScope) {
 
   let vm = this;
 
   vm.activate = activate;
 
   function activate (user) {
-    CategoryService.login(user).then(
+    UserService.login(user).then(
       resp => {
-        CategoryService.setUser(resp.data);
+        UserService.setUser(resp.data);
         $rootScope.$broadcast('loginChange', {});
         $state.go('root.home');
       },
@@ -19,5 +19,5 @@ function LoginController (CategoryService,$state,$rootScope) {
 
 };
 
-LoginController.$inject = ['CategoryService','$state','$rootScope'];
+LoginController.$inject = ['UserService','$state','$rootScope'];
 export { LoginController };

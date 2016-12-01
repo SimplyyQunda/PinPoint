@@ -1,12 +1,19 @@
 <div class="wrapper" ng-click="layout.clickMe()">
   <nav>
-    <div class="nav-left">
+    <div class="nav-center">
       <a href="#/"><h3 class="title">PinPoint</h3></a>
     </div>
-    <div class="nav-right">
-      <a href="#/home">Home</a>
-      <a href="#/about">About</a>
-      <a href="#/profile">Profile</a>
+    <div class="navBar">
+      <a class="nav-left" href="#/home">Home</a>
+      <a class="nav-left" href="#/about">About</a>
+      <a class="nav-left" href="#/profile">Profile</a>
+      <a class="nav-right" href="#/register"
+         ng-show="!layout.loggedIn">Sign Up</a>
+      <a class="nav-right" href="#/login"
+         ng-show="!layout.loggedIn">Login</a>
+      <a class="nav-right" href="#/"
+         ng-show="layout.loggedIn"
+         ng-click="layout.logout()">Logout</a>
     </div>
   </nav>
 

@@ -9,9 +9,11 @@ import { HomeController } from './controller/home';
 import { CategoryController } from './controller/category';
 import { LayoutController } from './controller/layout';
 import { CategoryService } from './services/categoryservice';
+import { UserService } from './services/user.service';
 import { ProfileController } from './controller/profile';
 import { LoginController } from './controller/login';
-import { RegisterController } from './controller/register'
+import { RegisterController } from './controller/register';
+import { SERVER } from './server';
 
 import 'angular-ui-router';
 
@@ -26,4 +28,5 @@ angular
   .controller('LoginController',LoginController)
   .controller('RegisterController',RegisterController)
   .service('CategoryService', CategoryService)
-  // .constant('SERVER', SERVER);
+  .service('UserService', UserService)
+  .constant('SERVER', SERVER);

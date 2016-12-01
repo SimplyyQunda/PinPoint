@@ -1,19 +1,19 @@
-function LayoutController ($rootScope, CategoryService) {
+function LayoutController ($rootScope, UserService) {
 
   let vm = this;
 
   vm.clickMe = clickMe;
-  vm.admin = CategoryService.isAdmin();
-  vm.loggedIn = CategoryService.isLoggedIn();
+  vm.admin = UserService.isAdmin();
+  vm.loggedIn = UserService.isLoggedIn();
   vm.logout = logout;
 
   $rootScope.$on('loginChange', (event, data) => {
-    vm.loggedIn = CategoryService.isLoggedIn();
-    vm.admin = CategoryService.isAdmin();
+    vm.loggedIn = UserService.isLoggedIn();
+    vm.admin = UserService.isAdmin();
  });
 
   function logout () {
-    CategoryService.logout();
+    UserService.logout();
     vm.loggedIn = false;
     vm.admin = false;
   }
@@ -23,5 +23,5 @@ function LayoutController ($rootScope, CategoryService) {
   };
 };
 
-LayoutController.$inject = ['$rootScope', 'CategoryService'];
+LayoutController.$inject = ['$rootScope', 'UserService'];
 export { LayoutController };

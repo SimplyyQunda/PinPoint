@@ -8,7 +8,7 @@ function HomeController ($stateParams, CategoryService) {
 	function init () {
     CategoryService.allCategories().then((resp) => {
       vm.pin = resp.data;
-      console.log(vm.pin)
+      console.log("this is it ",vm.pin)
     });
 };
 	init();
