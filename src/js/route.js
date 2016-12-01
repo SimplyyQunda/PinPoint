@@ -7,16 +7,19 @@ function routerConfig ($stateProvider, $urlRouterProvider){
 	      templateUrl: 'templates/layout.tpl.html',
 	      controller: 'LayoutController as layout'
 	    })
+
 		.state('root.home', {
 	      url: '/home',
 	      templateUrl: 'templates/home.tpl.html',
 	      controller: 'HomeController as home'
 	    })
+
 	    .state('root.profile', {
 	      url: '/profile',
 	      templateUrl: 'templates/profile.tpl.html',
 	      controller: 'ProfileController as profile'
 	    })
+
 	    .state('root.about', {
 	      url: '/about',
 	      templateUrl: 'templates/about.tpl.html'
@@ -27,8 +30,18 @@ function routerConfig ($stateProvider, $urlRouterProvider){
 	      templateUrl: 'templates/category.tpl.html',
 	      controller: 'CategoryController as categories'
 	    })
+	    .state('root.register', {
+	      url: '/register',
+	      templateUrl: 'templates/register.tpl.html',
+	      controller: 'RegisterController as register'
+	    })
+	    .state('root.login', {
+	      url: '/login',
+	      templateUrl: 'templates/login.tpl.html',
+	      controller: 'LoginController as login'
+	    })
 
-	    $urlRouterProvider.otherwise('/');
+	    $urlRouterProvider.otherwise('/home');
 	};
 
 routerConfig.$inject = ['$stateProvider', '$urlRouterProvider']

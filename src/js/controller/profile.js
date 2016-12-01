@@ -7,7 +7,7 @@ function ProfileController ($state, CategoryService) {
 
   	function createUser (pin) {
     	CategoryService.createUser(pin).then((resp) => {
-      		$state.go('home')
+      		$state.go('root.home')
     	});
   	};
 

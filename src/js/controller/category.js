@@ -16,7 +16,7 @@ function CategoryController ($http,$stateParams) {
 		}
 	}).then((resp) => {
       vm.choices = resp.data;
-      console.log(resp.data.items)
+      console.log(resp.data)
 	}).catch(error => {
 		console.log(error)
 	});
