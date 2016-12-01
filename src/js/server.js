@@ -1,3 +1,3 @@
-const SERVER = 'https://class-server.herokuapp.com/collections/pinpoint/';
+const SERVER = 'https://pure-refuge-11026.herokuapp.com/';
 // console.log(SERVER)
 export { SERVER };
