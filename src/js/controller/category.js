@@ -8,15 +8,15 @@ function CategoryController ($http,$stateParams) {
 
 	$http({
 		method: 'GET',
-		url:'https://www.googleapis.com/youtube/v3/videos',
+		url:'https://www.googleapis.com/youtube/v3/channels',
 		params: {
-			part: 'id,snippet',
-			chart: 'mostPopular',
+			part: 'snippet,statistics',
+			id: 'UCWD296-oeygjyIY8WSOFbBA',
 			key: api_key
 		}
 	}).then((resp) => {
       vm.choices = resp.data;
-      console.log(resp.data)
+      console.log(resp.data.items)
 	}).catch(error => {
 		console.log(error)
 	});
