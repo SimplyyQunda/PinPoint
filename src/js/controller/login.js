@@ -12,7 +12,7 @@ function LoginController (CategoryService, $state, $rootScope) {
         $state.go('root.home');
       },
       errors => {
-        console.log(errors.data.error);
+        // console.log(errors.data.error);
       }
     );
   };
