@@ -1,0 +1,10 @@
+<h3 class="title">New Category</h3>
+
+<form name="Category-form" ng-submit="profile.createCategory(cat)">
+  <p class="control">
+    <input name="categories" type="text" placeholder="New Category"
+           ng-model="cat.title" required />
+  </p>
+
+  <button>Submit</button>
+</form>

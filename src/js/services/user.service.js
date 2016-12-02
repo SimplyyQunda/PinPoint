@@ -13,7 +13,7 @@ function UserService ($http, $cookies, SERVER) {
   }
 
   function create (user) {
-  	return $http.post(`${SERVER}/users`,user);
+  	return $http.post(`${SERVER}users`,user);
   }
 
   function isLoggedIn () {
