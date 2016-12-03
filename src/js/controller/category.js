@@ -6,20 +6,20 @@ function CategoryController ($http,$stateParams) {
 
 	vm.choices = {};
 
-	// $http({
-	// 	method: 'GET',
-	// 	url:'https://www.googleapis.com/youtube/v3/channels',
-	// 	params: {
-	// 		part: 'snippet,statistics',
-	// 		id: 'UCWD296-oeygjyIY8WSOFbBA',
-	// 		key: api_key
-	// 	}
-	// }).then((resp) => {
- //      vm.choices = resp.data;
- //      console.log(resp.data)
-	// }).catch(error => {
-	// 	console.log(error)
-	// });
+	$http({
+		method: 'GET',
+		url:'https://www.googleapis.com/youtube/v3/channels',
+		params: {
+			part: 'snippet,statistics',
+			id: 'UCWD296-oeygjyIY8WSOFbBA',
+			key: api_key
+		}
+	}).then((resp) => {
+      vm.choices = resp.data;
+      console.log(resp.data)
+	}).catch(error => {
+		console.log(error)
+	});
 
 };
 
