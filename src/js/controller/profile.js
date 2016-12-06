@@ -46,6 +46,7 @@ function ProfileController ($state, CategoryService, ChannelService) {
   		}) 
   	}
 
+
 };
 
 ProfileController.$inject = ['$state', 'CategoryService', 'ChannelService'];
