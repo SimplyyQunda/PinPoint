@@ -1,7 +1,10 @@
 <div class="boxed">
 	<div class="box" ng-repeat="cat in home.categories">
-		<a href="#/category/{{ cat.id }}">
+		<a ui-sref='root.category({ id: {{ cat.id }}, title: "{{ cat.title }}" })'>
 			<h3>{{ cat.title }}</h3>
-		</a>	
+		</a>
+		<!-- <a href="#/category/{{ cat.id }}">
+			<h3>{{ cat.title }}</h3>
+		</a> -->	
 	</div>
 </div>

@@ -28,7 +28,7 @@ function routerConfig ($stateProvider, $urlRouterProvider){
 	    .state('root.category', {
 	      url: '/category/:id',
 	      templateUrl: 'templates/category.tpl.html',
-	      controller: 'CategoryController as categories'
+	      controller: 'CategoryController as category'
 	    })
 	    .state('root.register', {
 	      url: '/register',

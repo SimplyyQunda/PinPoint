@@ -34,8 +34,10 @@ function ProfileController ($state, CategoryService, ChannelService) {
 		let urlString = channel.google_id;
 		let channel_id = urlString.slice(urlString.lastIndexOf('/') + 1);
 		channel.google_id = channel_id;
+		/*Change the category id into a nummber*/
+		channel.category_id = Number(channel.category_id);
 
-		console.log(channel)
+		console.log("channel", channel)
 
   		ChannelService.addChannel(channel).then((resp) =>{
   			$state.go('root.category')

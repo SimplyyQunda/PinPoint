@@ -2,7 +2,7 @@
 
 <form name="Category-form" ng-submit="profile.createCategory(cat)">
   <p class="control">
-    <input name="categories" type="text" placeholder="New Category"
+    <input class="input" name="categories" type="text" placeholder="New Category"
            ng-model="cat.title" required />
   </p>
 
@@ -12,19 +12,23 @@
 
 <form name="channelForm" ng-submit="profile.addChannel(channel)">
   <p class="control">
-  	<select name="options" type="select" placeholder="Choose Category"  
-  		   ng-model="channel.category_id" required> 
+  	<select name="options" type="select" 
+  		   ng-model="channel.category_id" required ng-init="channel.category_id = 'default'">
+  		   <option value="default">Select Category</option>
   		   <option value="{{ category.id }}" ng-repeat="category in profile.categories">{{ category.title }}</option>
   	</select>	   
   </p>
 
   <p class="control">
-  	<input type="text" ng-model="channel.title" placeholder="Channel Title" required />
-    <input name="channel" type="text" placeholder="YouTube Channel URL"
+  	<input class="input" type="text" ng-model="channel.title" placeholder="Channel Title" required />
+    <input class="input" name="channel" type="text" placeholder="YouTube Channel URL"
            ng-model="channel.google_id" required />
 
-    <input name="linkto-Channel" type="url" ng-model="channel.url" placeholder="YouTube User Url" required />       
+    <input class="input" name="linkto-Channel" type="url" ng-model="channel.url" placeholder="YouTube User Url" required />       
   </p>
 
-  <button>Add Channel</button>
+<p class="control">
+  <button class="button is-primary">Add Channel</button>
+  <button class="button is-link">Cancel</button>
+</p>
 </form>

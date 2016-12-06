@@ -1,13 +1,17 @@
 <h3 class="title">Login</h3>
 
 <form name="signup-form" ng-submit="login.activate(user)">
-  <p class="control">
-    <input name="username" type="text" placeholder="Username"
-           ng-model="user.username" required />
-  </p>
-  <p class="control">
-    <input name="password" type="password" placeholder="Password"
-           ng-model="user.password" required />
-  </p>
-  <button>Let's Get Started !</button>
+  <p class="control has-icon">
+  <input class="input" type="text" placeholder="Username" ng-model="user.username" required />
+  <i class="fa fa-envelope"></i>
+</p>
+<p class="control has-icon">
+  <input class="input" type="password" placeholder="Password" ng-model="user.password" required />
+  <i class="fa fa-lock"></i>
+</p>
+<p class="control">
+  <button class="button is-success">
+    Let's Get Started!
+  </button>
+</p>
 </form>
