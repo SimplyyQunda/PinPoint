@@ -1,6 +1,6 @@
 import api_key from "../token";
 
-function CategoryController ($http,$stateParams,CategoryService, ChannelService, $state, SubscriberService) {
+function CategoryController ($http, SERVER, $stateParams, CategoryService, ChannelService, $state, SubscriberService) {
 
 	let vm = this;
 	// vm.getChannel = getChannel;
@@ -12,27 +12,31 @@ function CategoryController ($http,$stateParams,CategoryService, ChannelService,
 
 	vm.choices = {};
 
-	$http({
-		method: 'GET',
-		url:'https://www.googleapis.com/youtube/v3/channels',
-		params: {
-			part: 'snippet,statistics',
-			id: '${SERVER}categories/${google_id}',
-			key: api_key
-		}
-	}).then((resp) => {
-		// console.log(resp.data.channels)
-      vm.choices = resp.data;
-      
-	}).catch(error => {
-		// console.log(error)
-	});
+	function getThumbnails () {
+		$http({
+			method: 'GET',
+			url:'https://www.googleapis.com/youtube/v3/channels',
+			params: {
+				part: 'snippet',
+				id: '${SERVER}categories/${google_id}/thumbnails',
+				key: api_key
+			}
+		}).then((resp) => {
+			console.log(vm.choices)
+	      vm.choices = resp.data;
+	      vm.channels = resp.data.channels;
+	      
+		}).catch(error => {
+			// console.log(error)
+		});
+	}	
+		
 
 	function getSubscriber () {
 		// console.log('working')
 		SubscriberService.getSubscriber($stateParams.id).then((resp) => {
 			vm.subbies = resp.data.subbies;
-			// console.log('Hi')
+			console.log(vm.subbies)
 			$state.go('root.category')
 		}).catch(error => {
 		console.log(error)
@@ -44,7 +48,7 @@ function CategoryController ($http,$stateParams,CategoryService, ChannelService,
 			
 			vm.getChannel = resp.data;
 			vm.channels = resp.data.channels;
-			console.log(vm.getChannel)
+			// console.log(vm.getChannel)
 			$state.go('root.category')
 		});
 	}
@@ -56,6 +60,6 @@ function CategoryController ($http,$stateParams,CategoryService, ChannelService,
 
 
 
-CategoryController.$inject = ['$http','$stateParams', 'CategoryService', 'ChannelService', '$state', 'SubscriberService']
+CategoryController.$inject = ['$http', 'SERVER', '$stateParams', 'CategoryService', 'ChannelService', '$state', 'SubscriberService']
 
 export { CategoryController }

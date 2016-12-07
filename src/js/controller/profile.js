@@ -1,5 +1,5 @@
 
-function ProfileController ($state, CategoryService, ChannelService) {
+function ProfileController ($state, $stateParams, CategoryService, ChannelService, SubscriberService) {
 
 	let vm = this;
 
@@ -7,6 +7,7 @@ function ProfileController ($state, CategoryService, ChannelService) {
   	this.createCategory = createCategory;
   	this.addChannel = addChannel;
   	this.categories = []
+    this.subscript = []
 
   	function init() {
   		CategoryService.allCategories().then((resp) => {
@@ -46,8 +47,18 @@ function ProfileController ($state, CategoryService, ChannelService) {
   		}) 
   	}
 
+    function init () {
+      SubscriberService.getSubscribers($stateParams.id).then((resp) =>{
+
+        vm.getSubscribers = resp.data;
+        // console.log(vm.getSubscribers)
+        $state.go('root.profile')
+      })
+    }
+
+    init();
 
 };
 
-ProfileController.$inject = ['$state', 'CategoryService', 'ChannelService'];
+ProfileController.$inject = ['$state', '$stateParams', 'CategoryService', 'ChannelService', 'SubscriberService'];
 export { ProfileController };
