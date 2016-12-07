@@ -1,10 +1,13 @@
-<div class="channelContent" ng-repeat="channel in category.channels">
+
 	<span >  
 		<button ng-click="category.getSubscriber()" class="button is-primary">SUBSCRIBE</button>
 	</span>
+
+<div class="channelContent" ng-repeat="channel in category.channels">
+
 		<div class="channels">	
 			<h3> {{ channel.title }} </h3>
-			<p> {{}}
+			<img src="{{channel.snippet.thumbnails.high.url}}">
 		</div>
   
 </div>  

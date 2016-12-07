@@ -14,6 +14,8 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
   			console.log(resp.data);
   			vm.categories = resp.data;
   		});
+
+      initSubscript()
   	}
 
   	init();
@@ -47,13 +49,14 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
   		}) 
   	}
 
-    function init () {
-      SubscriberService.getSubscribers($stateParams.id).then((resp) =>{
+    function initSubscript () {
+      SubscriberService.getSubscribers().then((resp) =>{
 
         vm.getSubscribers = resp.data;
+        console.log(resp.data)
         // console.log(vm.getSubscribers)
-        $state.go('root.profile')
       })
+
     }
 
     init();

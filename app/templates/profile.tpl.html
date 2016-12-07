@@ -1,15 +1,17 @@
-<h1 class="title">New Category</h1>
+<!-- <h1 class="title">New Category</h1> -->
 <form name="Category-form" ng-submit="profile.createCategory(cat)">
-  <p class="control">
+<h1 class="title">New Category</h1>
+  <p class="control has-icon has-icon-rights">
     <input class="input" name="categories" type="text" placeholder="New Category"
            ng-model="cat.title" required />
   </p>
 
-  <button>Submit</button>
+  <button class="button is-primary">Submit</button>
 
 </form>
 
 <form name="channelForm" ng-submit="profile.addChannel(channel)">
+<h1 class="title">What Channels Interest You?</h1>
   <div class="addChannel">
   <p class="control has-icon has-icon-rights">
   	<input class="input" type="text" ng-model="channel.title" placeholder="Channel Title" required />

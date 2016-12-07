@@ -8,24 +8,24 @@ function CategoryController ($http, SERVER, $stateParams, CategoryService, Chann
 		vm.channels = [];
 		vm.subbies = [];
 		vm.getSubscriber = getSubscriber;
+		// vm.google_id = channels.google_id;
 	// console.log($stateParams)
 
 	vm.choices = {};
 
-	function getThumbnails () {
+	function getThumbnails (channel) {
+
 		$http({
 			method: 'GET',
 			url:'https://www.googleapis.com/youtube/v3/channels',
 			params: {
 				part: 'snippet',
-				id: '${SERVER}categories/${google_id}/thumbnails',
+				id: channel.google_id,
 				key: api_key
 			}
 		}).then((resp) => {
-			console.log(vm.choices)
-	      vm.choices = resp.data;
-	      vm.channels = resp.data.channels;
-	      
+			channel.snippet = resp.data.items[0].snippet;
+			console.log(channel)
 		}).catch(error => {
 			// console.log(error)
 		});
@@ -35,9 +35,8 @@ function CategoryController ($http, SERVER, $stateParams, CategoryService, Chann
 	function getSubscriber () {
 		// console.log('working')
 		SubscriberService.getSubscriber($stateParams.id).then((resp) => {
-			vm.subbies = resp.data.subbies;
+			vm.subbies = resp.data;
 			console.log(vm.subbies)
-			$state.go('root.category')
 		}).catch(error => {
 		console.log(error)
 	})
@@ -49,8 +48,11 @@ function CategoryController ($http, SERVER, $stateParams, CategoryService, Chann
 			vm.getChannel = resp.data;
 			vm.channels = resp.data.channels;
 			// console.log(vm.getChannel)
-			$state.go('root.category')
-		});
+			vm.channels.forEach(function(channel){
+				getThumbnails(channel);
+			})
+
+		})
 	}
 
 	init();

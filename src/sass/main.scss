@@ -1,5 +1,12 @@
 @import "bulma";
 
+.main-content{
+        display: inline-block;
+        display: flex;
+        justify-content: space-around;
+        padding-top: 47px;
+}
+
 h3{
 	font-family: 'Cinzel', serif;
 	font-size: 25px;
