@@ -12,6 +12,7 @@ import { CategoryService } from './services/categoryservice';
 import { UserService } from './services/user.service';
 import { ChannelService } from './services/youtube.service';
 import { SubscriberService } from './services/subscriber-service';
+import { CommentrateService } from './services/commentrate-service';
 import { ProfileController } from './controller/profile';
 import { LoginController } from './controller/login';
 import { RegisterController } from './controller/register';
@@ -33,4 +34,5 @@ angular
   .service('ChannelService', ChannelService)
   .service('UserService', UserService)
   .service('SubscriberService', SubscriberService)
+  .service('CommentrateService', CommentrateService)
   .constant('SERVER', SERVER);

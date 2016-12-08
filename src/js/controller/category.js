@@ -7,6 +7,7 @@ function CategoryController ($http, SERVER, $stateParams, CategoryService, Chann
 	// vm.title = $stateParams.title;
 		vm.channels = [];
 		vm.subbies = [];
+		vm.comments = [];
 		vm.getSubscriber = getSubscriber;
 		// vm.google_id = channels.google_id;
 	// console.log($stateParams)
@@ -40,6 +41,13 @@ function CategoryController ($http, SERVER, $stateParams, CategoryService, Chann
 		}).catch(error => {
 		console.log(error)
 	})
+	}
+
+	function getComments () {
+		CommentrateService.getComments($stateParams.id).then((resp) => {
+			vm.getmoComments = resp.data.channels;
+			vm.comments = resp.data.channels.comments;
+		})
 	}
 
 	function init () {
