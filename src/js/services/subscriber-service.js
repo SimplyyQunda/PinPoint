@@ -11,7 +11,7 @@ function SubscriberService ($http, SERVER, CategoryService, $stateParams, UserSe
 		return $http.post(`${SERVER}categories/${id}/subscribe`, {}, { headers: UserService.getHeaders() });
 	}
 
-	function getSubscribers () {
+	function getSubscribers (subs) {
 		return $http.get(`${SERVER}subscriptions`, { headers: UserService.getHeaders() });
 	}
 

@@ -1,7 +1,7 @@
 function ChannelService ($http, SERVER, CategoryService) {
 
 	this.addChannel = addChannel;
-	this.getChannel = getChannel;
+	this.getChannels = getChannels;
 	this.getThumbnails = getThumbnails;
 
 	function addChannel (channel) {
@@ -9,7 +9,7 @@ function ChannelService ($http, SERVER, CategoryService) {
     	return $http.post(`${SERVER}channels`, channel);
 	}
 
-	function getChannel (id) {
+	function getChannels (id) {
 		return $http.get(`${SERVER}categories/${id}`);
 	}
 

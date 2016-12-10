@@ -5,7 +5,6 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
 
   	this.createUser = createUser;
   	this.createCategory = createCategory;
-  	this.addChannel = addChannel;
   	this.categories = []
     this.subscript = []
 
@@ -15,10 +14,8 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
   			vm.categories = resp.data;
   		});
 
-      initSubscript()
+      init()
   	}
-
-  	init();
 
   	function createUser (pin) {
     	CategoryService.createUser(pin).then((resp) => {
@@ -33,23 +30,7 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
     	});
   	};
 
-  	function addChannel (channel) {
-		let urlString = channel.google_id;
-		let channel_id = urlString.slice(urlString.lastIndexOf('/') + 1);
-		channel.google_id = channel_id;
-		/*Change the category id into a nummber*/
-		channel.category_id = Number(channel.category_id);
-
-		console.log("channel", channel)
-
-  		ChannelService.addChannel(channel).then((resp) =>{
-  			$state.go('root.category')
-  		}, (error) => {
-  			console.log(error)
-  		}) 
-  	}
-
-    function initSubscript () {
+    function initSubscript (subs) {
       SubscriberService.getSubscribers().then((resp) =>{
 
         vm.getSubscribers = resp.data;
@@ -59,7 +40,7 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
 
     }
 
-    init();
+    initSubscript();
 
 };
 

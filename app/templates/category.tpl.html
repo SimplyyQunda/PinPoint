@@ -7,11 +7,19 @@
 	<ul class="channels">
 		<li>
 			<h3> {{ channel.title }} </h3>
-			<a href="{{channel.url}}"><img src="{{channel.snippet.thumbnails.high.url}}">
+			<a href="{{channel.url}}"><img ng-src="{{channel.snippet.thumbnails.high.url}}"></a>
 		</li>
 		<li>
 			<article class="message is-primary">
-			  <div class="message-body" ng-repeat="">
+			  <div class="message-body">
+			  	<form ng-submit="category.addComment(comment)">
+				  	<textarea ng-model="comment.text">
+				  	</textarea>
+				  	<input type="hidden"
+				  	  ng-model="comment.channel_id"
+				  	  ng-init="comment.channel_id = channel.id">
+				  	<button type="submit">Submit</button>
+			  	</form>
 			  </div>
 			</article>
 		</li>
