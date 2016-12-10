@@ -25,6 +25,12 @@ function routerConfig ($stateProvider, $urlRouterProvider){
 	      templateUrl: 'templates/about.tpl.html'
 	    })
 
+	    .state('root.add', {
+	    	url:'/add',
+	    	templateUrl: 'templates/add.tpl.html',
+	    	controller: 'AddController as add'
+	    })
+
 	    .state('root.category', {
 	      url: '/category/:id',
 	      templateUrl: 'templates/category.tpl.html',

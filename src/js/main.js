@@ -8,11 +8,12 @@ import { routerConfig } from './route'
 import { HomeController } from './controller/home';
 import { CategoryController } from './controller/category';
 import { LayoutController } from './controller/layout';
+import { AddController } from './controller/add';
 import { CategoryService } from './services/categoryservice';
 import { UserService } from './services/user.service';
 import { ChannelService } from './services/youtube.service';
 import { SubscriberService } from './services/subscriber-service';
-import { CommentrateService } from './services/commentrate-service';
+import { CommentRateService } from './services/commentrate-service';
 import { ProfileController } from './controller/profile';
 import { LoginController } from './controller/login';
 import { RegisterController } from './controller/register';
@@ -27,6 +28,7 @@ angular
   .controller('CategoryController', CategoryController)
   .controller('LayoutController', LayoutController)
   .controller('HomeController', HomeController)
+  .controller('AddController', AddController)
   .controller('ProfileController',ProfileController)
   .controller('LoginController',LoginController)
   .controller('RegisterController',RegisterController)
@@ -34,5 +36,5 @@ angular
   .service('ChannelService', ChannelService)
   .service('UserService', UserService)
   .service('SubscriberService', SubscriberService)
-  .service('CommentrateService', CommentrateService)
+  .service('CommentRateService', CommentRateService)
   .constant('SERVER', SERVER);

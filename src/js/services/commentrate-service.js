@@ -1,21 +1,21 @@
-function CommentrateService ($http, SERVER, $stateParams, ChannelService) {
+function CommentRateService ($http, SERVER, $stateParams, ChannelService, UserService) {
 	this.getComments = getComments;
-	this.addComments = addComments;
+	this.addComment = addComment;
 	this.deleteComments = deleteComments;
 
 	function getComments (id)	{
 		return $http.get(`${SERVER}channels/${id}`);
 	}
 
-	function addComments (id) {
-		return $http.post(`${SERVER}channels/${id}/comments`);
+	function addComment (id,comment) {
+		return $http.post(`${SERVER}channels/${id}/comments`, comment, { headers: UserService.getHeaders() });
 	}
 
 	function deleteComments () {
-		return $http.delete(`${SERVER}channels/${id}/comments/${comment_id}`);
+		return $http.delete(`${SERVER}channels/${id}/comments/${comment_id}`, { headers: UserService.getHeaders() });
 	}
 
 };
 
-CommentrateService.$inject = ['$http', 'SERVER', '$stateParams', 'ChannelService']
-export { CommentrateService };
+CommentRateService.$inject = ['$http', 'SERVER', '$stateParams', 'ChannelService', 'UserService']
+export { CommentRateService };
