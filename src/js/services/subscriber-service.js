@@ -12,6 +12,7 @@ function SubscriberService ($http, SERVER, CategoryService, $stateParams, UserSe
 	}
 
 	function getSubscribers (subs) {
+		console.log('subscribe to me')
 		return $http.get(`${SERVER}subscriptions`, { headers: UserService.getHeaders() });
 	}
 

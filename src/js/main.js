@@ -20,9 +20,10 @@ import { RegisterController } from './controller/register';
 import { SERVER } from './server';
 
 import 'angular-ui-router';
+import 'angular-youtube-embed';
 
 angular
-  .module('app', ['ui.router','ngCookies'])
+  .module('app', ['ui.router','ngCookies', 'youtube-embed'])
   .config(routerConfig)
   .run(run)
   .controller('CategoryController', CategoryController)
