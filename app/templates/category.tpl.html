@@ -1,28 +1,29 @@
 
 <div>  
-	<button ng-click="category.getSubscriber()" class="button is-primary">SUBSCRIBE</button>
+	<button ng-click="category.getSubscriber()" class="button is-success">SUBSCRIBE</button>
 </div>
 
 <div class="channelContent" ng-repeat="channel in category.channels">
-	<ul class="channels">
+	<ul class="box channels">
 		<li>
 			<h3> {{ channel.title }} </h3>
 			<a href="{{channel.url}}"><img ng-src="{{channel.snippet.thumbnails.high.url}}"></a>
 
 		</li>
-		<li>
+		<li class="comtList">
 			<span class="comment" ng-repeat="comment in category.comments">{{ comment.text }}<hr></span>
 		</li>
 		<li>
 			<article class="message is-primary">
-			  <div class="message-body">
+			  <div class="message-header">
+			  <h1>Penny for Thought...</h1>
 			  	<form ng-submit="category.addComment(comment)">
 				  	<textarea ng-model="comment.text">
 				  	</textarea>
 				  	<input type="hidden"
 				  	  ng-model="comment.channel_id"
 				  	  ng-init="comment.channel_id = channel.id">
-				  	<button type="submit">Submit</button>
+				  	<button class="button is-success" type="submit">Submit</button>
 			  	</form>
 			  </div>
 			</article>
