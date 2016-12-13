@@ -1,5 +1,5 @@
 <div class="boxed">
-	<div class="box" ng-repeat="cat in home.categories">
+	<div class="box" ng-repeat="cat in home.categories" style="background-image: url({{cat.background_url}});">
 		<a ui-sref='root.category({ id: {{ cat.id }}, title: "{{ cat.title }}" })'>
 			<h3>{{ cat.title }}</h3>
 		</a>

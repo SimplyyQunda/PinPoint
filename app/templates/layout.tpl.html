@@ -1,22 +1,53 @@
 <div class="wrapper" ng-click="layout.clickMe()">
-  <nav>
-    <div class="nav-center">
-      <a href="#/"><img src="./images/PinPoint.png"></a>
-    </div>
-    <div class="navBar">
-      <a class="nav-left" href="#/home">Home</a>
-      <a class="nav-left" href="#/about">About</a>
-      <a class="nav-left" href="#/profile">Profile</a>
-      <a class="nav-right" href="#/register"
-         ng-show="!layout.loggedIn">Sign Up</a>
-      <a class="nav-left" href="#/add">Add</a>   
-      <a class="nav-right" href="#/login"
+  <nav class="nav">
+  <div class="nav-left">
+    <a class="nav-item is-brand" href="#">
+      <img src="./images/PinPointbg.png"" alt="PinPoint logo">
+    </a>
+  </div>
+
+  <div class="nav-center">
+    <a class="nav-item" href="https://github.com/SimplyyQunda">
+      <span class="icon">
+        <i class="fa fa-github"></i>
+      </span>
+    </a>
+    <a class="nav-item" href="https://twitter.com/SimplyyQunda">
+      <span class="icon">
+        <i class="fa fa-twitter"></i>
+      </span>
+    </a>
+  </div>
+
+  <span class="nav-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </span>
+
+  <div class="nav-right nav-menu">
+    <a class="nav-item" href="#/home">
+      Home
+    </a>
+    <a class="nav-item" href="#/about">
+      About
+    </a>
+    <a class="nav-item" href="#/profile">
+      Profile
+    </a>
+    <a class="nav-item" href="#/add">
+      Add
+    </a>
+    <a class="nav-item" href="#/register"
+         ng-show="!layout.loggedIn">Sign Up</a> 
+    <a class="nav-item" href="#/login"
          ng-show="!layout.loggedIn">Login</a>
-      <a class="nav-right" href="#/"
+    <a class="nav-item" href="#/"
          ng-show="layout.loggedIn"
          ng-click="layout.logout()">Logout</a>
-    </div>
-  </nav>
+
+  </div>
+</nav>
 
   <div class="main-content" ui-view>
   </div>
