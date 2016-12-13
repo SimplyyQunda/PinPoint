@@ -2,6 +2,8 @@ function CommentRateService ($http, SERVER, $stateParams, ChannelService, UserSe
 	this.getComments = getComments;
 	this.addComment = addComment;
 	this.deleteComments = deleteComments;
+	this.rateChannel = rateChannel;
+	// this.upVote = upVote;
 
 	function getComments (id)	{
 		return $http.get(`${SERVER}channels/${id}`);
@@ -13,6 +15,11 @@ function CommentRateService ($http, SERVER, $stateParams, ChannelService, UserSe
 
 	function deleteComments () {
 		return $http.delete(`${SERVER}channels/${id}/comments/${comment_id}`, { headers: UserService.getHeaders() });
+	}
+
+	function rateChannel (id,score) {
+		let data = {score: score}
+		return $http.put(`${SERVER}channels/${id}/vote`, data, { headers: UserService.getHeaders() });
 	}
 
 };

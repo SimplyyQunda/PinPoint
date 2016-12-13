@@ -6,7 +6,7 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
   	this.createUser = createUser;
   	this.createCategory = createCategory;
   	this.categories = []
-    this.subscript = []
+    this.subscriptions = []
 
   	function init() {
   		CategoryService.allCategories().then((resp) => {
@@ -33,8 +33,8 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
     function initSubscript (subs) {
       SubscriberService.getSubscribers().then((resp) =>{
 
-        vm.getSubscribers = resp.data;
-        console.log(resp.data)
+        vm.subscriptions = resp.data;
+        console.log(vm.subscriptions)
         // console.log(vm.getSubscribers)
       })
 
