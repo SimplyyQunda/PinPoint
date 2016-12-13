@@ -8,6 +8,10 @@
 		<li>
 			<h3> {{ channel.title }} </h3>
 			<a href="{{channel.url}}"><img ng-src="{{channel.snippet.thumbnails.high.url}}"></a>
+
+		</li>
+		<li>
+			<span class="comment" ng-repeat="comment in category.comments">{{ comment.text }}<hr></span>
 		</li>
 		<li>
 			<article class="message is-primary">
@@ -21,6 +25,17 @@
 				  	<button type="submit">Submit</button>
 			  	</form>
 			  </div>
+			</article>
+			<li>
+				<div>
+					<i title="upVotes" ng-click="category.rateChannel(channel.id,1)" class="fa fa-arrow-circle-up fa-2x"></i>
+					<h1>{{ score }}</h1>
+					<i title="downVotes" ng-click="category.rateChannel(channel.id,-1)" class="fa fa-arrow-circle-down fa-2x"></i>
+                </div>
+			</li>
+
+			<article class="videos" ng-repeat="video in category.videos">
+					<youtube-video video-id="video.id.videoId" player-width="'100%'" player-height="'300px'"></youtube-video>
 			</article>
 		</li>
   	</ul>

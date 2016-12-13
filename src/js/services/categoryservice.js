@@ -3,6 +3,8 @@ function CategoryService ($http, SERVER, UserService) {
   this.allCategories = allCategories;
   this.createCategory = createCategory;
   this.addCategory = addCategory;
+  this.updateCategory = updateCategory;
+
 
   function createCategory(cat){
   	return $http.post(`${SERVER}categories`, cat, { headers: UserService.getHeaders() });
@@ -23,6 +25,11 @@ function CategoryService ($http, SERVER, UserService) {
     };
 
     return $http(dem);
+  }
+
+  function updateCategory (category) {
+    return $http.put(`${SERVER}categories/${category.id}`, category, { headers: UserService.getHeaders() });
+
   }
 
 

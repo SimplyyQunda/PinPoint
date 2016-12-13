@@ -1,4 +1,4 @@
-<form name="Category-form" ng-submit="add.createCategory(cat)">
+<form class="box" name="Category-form" ng-submit="add.createCategory(cat)">
 <h1 class="title">New Category</h1>
   <p class="control has-icon has-icon-rights">
     <input class="input" name="categories" type="text" placeholder="New Category"
@@ -7,8 +7,20 @@
   <button class="button is-primary">Submit</button>
 </form>
 
+<form class="box" name="Update-Category" ng-submit="add.updateCategory(cat)">
+  <h1 class="title">Update Category</h1>
+  <select class="control has-icon has-icon-rights" name="options" type="select" 
+           ng-model="cat.id" required ng-init="cat.id = 'default'">
+           <option value="default">Select Category</option>
+           <option value="{{ category.id }}" ng-repeat="category in add.categories">{{ category.title }}</option>
+      </select>
+  <p class="control has-icon has-icon-rights">
+    <input class="input" name="backgroundUrl" type="url" placeholder="Background Url" ng-model="cat.background_url" required />
+  </p>
+  <button class="button is-primary">Submit</button>  
 </form>
-<form name="channelForm" ng-submit="add.addChannel(channel)">
+
+<form class="box" name="channelForm" ng-submit="add.addChannel(channel)">
 <h1 class="title">What Channels Interest You?</h1>
   <div class="addChannel">
   <p class="control has-icon has-icon-rights">
@@ -32,7 +44,7 @@
     </p>  
 
     <p class="control">
-      <button class="button is-primary">Add Channel</button>
+      <button class="button is-primary" type="submit">Add Channel</button>
       <button class="button is-link">Cancel</button>
     </p>
 </div>
