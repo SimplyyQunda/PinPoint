@@ -3,13 +3,15 @@ function AddController ($state, $stateParams, CategoryService, ChannelService) {
 
 	this.addChannel = addChannel;
 	this.createCategory = createCategory
+  this.updateCategory = updateCategory
 	this.categories = []
+	this.background_url = []
 
 	function init () {
     CategoryService.allCategories().then((resp) => {
       vm.pin = resp.data;
       vm.categories = resp.data;
-      console.log("this is it ",vm.pin)
+      console.log("this is it ",vm.categories)
     });
 	};
 	init();
@@ -37,6 +39,15 @@ function AddController ($state, $stateParams, CategoryService, ChannelService) {
       		$state.go('root.category')
     	});
   	};
+
+  	function updateCategory (category) {
+      console.log('hi')
+  		CategoryService.updateCategory(category).then((resp) => {
+  			vm.background = resp.background;
+  			console.log(resp)
+  			$state.go('root.category',{id:category.id})
+  		})
+  	}
 
 }
 AddController.$inject = ['$state', '$stateParams', 'CategoryService', 'ChannelService'];
