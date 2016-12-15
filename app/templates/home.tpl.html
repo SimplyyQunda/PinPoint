@@ -1,5 +1,9 @@
 <div class="boxed">
-	<div class="box bgImg" ng-repeat="cat in home.categories" style="background-image: url({{cat.background_url}});">
+	<div class="loading" ng-if="!home.categories.length">
+		<h2>Categories loading...</h2>
+		<img src="images/loading.jpg">
+	</div>
+	<div class="box bgImg" ng-repeat="cat in home.categories" style="background-image: url({{cat.background_url}}); background-size: cover;">
 		<a ui-sref='root.category({ id: {{ cat.id }}, title: "{{ cat.title }}" })'>
 		<div>
 			<h3 class="title">{{ cat.title }}</h3>

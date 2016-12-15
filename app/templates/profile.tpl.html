@@ -1,4 +1,7 @@
-<div class="box homePage" ng-repeat="category in profile.subscriptions ">
-	<h3>{{ category.title }}</h3>
-	
+<div class="profile">
+	<div class="box homePage" ng-repeat="category in profile.subscriptions ">
+		<h3>{{ category.title }}</h3>
+		<a href="#/channels/{{ category.id }}"><img ng-src="{{category.snippet.thumbnails.high.url}}"></a>
+		
+	</div>
 </div>

@@ -1,17 +1,22 @@
 <h3 class="title">Sign Up</h3>
 
 <form name="signup-form" ng-submit="register.makeUser(user)">
-  <p class="control">
-    <input name="username" type="text" placeholder="Username"
-           ng-model="user.username" required />
+  <p class="control has-icon">
+    <input class="input" name="username" type="text" placeholder="Username" ng-model="user.username" required />
+    <i class="fa fa-user"></i>
   </p>
-  <p class="control">
-    <input name="email" type="text" placeholder="jane@doe.videos"
+  <p class="control has-icon">
+    <input class="input" name="email" type="text" placeholder="Email"
            ng-model="user.email" required />
+           <i class="fa fa-envelope"></i>
   </p>
-  <p class="control">
-    <input name="password" type="password" placeholder="hunter2"
+  <p class="control has-icon">
+    <input class="input" name="password" type="password" placeholder="Password"
            ng-model="user.password" required />
+           <i class="fa fa-lock"></i>
   </p>
-  <button>Create Profile</button>
+  <p>
+    <button class="button is-succes">Create Profile</button>
+  </p>
+  
 </form>

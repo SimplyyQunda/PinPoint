@@ -1,55 +1,57 @@
-<form class="box" name="Category-form" ng-submit="add.createCategory(cat)">
-<h1 class="title">New Category</h1>
-  <p class="control has-icon has-icon-rights">
-    <input class="input" name="categories" type="text" placeholder="New Category"
-           ng-model="cat.title" required />
-  </p>
-  <button class="button is-primary">Submit</button>
-</form>
-
-<form class="box" name="Update-Category" ng-submit="add.updateCategory(cat)">
-  <h1 class="title">Update Category</h1>
-  <select class="control has-icon has-icon-rights" name="options" type="select" 
-           ng-model="cat.id" required ng-init="cat.id = 'default'">
-           <option value="default">Select Category</option>
-           <option value="{{ category.id }}" ng-repeat="category in add.categories">{{ category.title }}</option>
-      </select>
-  <p class="control has-icon has-icon-rights">
-    <input class="input" name="backgroundUrl" type="url" placeholder="Background Url" ng-model="cat.background_url" required />
-  </p>
-  <button class="button is-primary">Submit</button>  
-</form>
-
-<form class="box" name="channelForm" ng-submit="add.addChannel(channel)">
-<h1 class="title">What Channels Interest You?</h1>
-  <div class="addChannel">
-  <p class="control has-icon has-icon-rights">
-  	<input class="input" type="text" ng-model="channel.title" placeholder="Channel Title" required />
-    <i class="fa fa-header" aria-hidden="true"></i>
-  </p>  
-      <select class="control has-icon has-icon-rights" name="options" type="select" 
-           ng-model="channel.category_id" required ng-init="channel.category_id = 'default'">
-           <option value="default">Select Category</option>
-           <option value="{{ category.id }}" ng-repeat="category in add.categories">{{ category.title }}</option>
-      </select>
-
-    <p class="control has-icon has-icon-rights">      
-      <input class="input" name="channel" type="text" placeholder="YouTube Channel URL" ng-model="channel.google_id" required />
-      <i class="fa fa-youtube-play" aria-hidden="true"></i>
-    </p>
-
+<div class="form-content">
+  <form class="box" name="Category-form" ng-submit="add.createCategory(cat)">
+  <h1 class="title">New Category</h1>
     <p class="control has-icon has-icon-rights">
-      <input class="input" name="linkto-Channel" type="url" ng-model="channel.url" placeholder="YouTube User Url" required />
-      <i class="fa fa-youtube" aria-hidden="true"></i>
-    </p>  
-
-    <p class="control">
-      <button class="button is-primary" type="submit">Add Channel</button>
-      <button class="button is-link">Cancel</button>
+      <input class="input" name="categories" type="text" placeholder="New Category"
+             ng-model="cat.title" required />
     </p>
-</div>
-</form>
+    <button class="button is-primary">Submit</button>
+  </form>
 
-<div class="box" ng-repeat="subs in add.subscriptions">
-  
+  <form class="box" name="Update-Category" ng-submit="add.updateCategory(cat)">
+    <h1 class="title">Update Category</h1>
+    <select class="control has-icon has-icon-rights" name="options" type="select" 
+             ng-model="cat.id" required ng-init="cat.id = 'default'">
+             <option value="default">Select Category</option>
+             <option value="{{ category.id }}" ng-repeat="category in add.categories">{{ category.title }}</option>
+        </select>
+    <p class="control has-icon has-icon-rights">
+      <input class="input" name="backgroundUrl" type="url" placeholder="Background Url" ng-model="cat.background_url" required />
+    </p>
+    <button class="button is-primary">Submit</button>  
+  </form>
+
+  <form class="box" name="channelForm" ng-submit="add.addChannel(channel)">
+  <h1 class="title">What Channels Interest You?</h1>
+    <div class="addChannel">
+    <p class="control has-icon has-icon-rights">
+    	<input class="input" type="text" ng-model="channel.title" placeholder="Channel Title" required />
+      <i class="fa fa-header" aria-hidden="true"></i>
+    </p>  
+        <select class="control has-icon has-icon-rights" name="options" type="select" 
+             ng-model="channel.category_id" required ng-init="channel.category_id = 'default'">
+             <option value="default">Select Category</option>
+             <option value="{{ category.id }}" ng-repeat="category in add.categories">{{ category.title }}</option>
+        </select>
+
+      <p class="control has-icon has-icon-rights">      
+        <input class="input" name="channel" type="text" placeholder="YouTube Channel URL" ng-model="channel.google_id" required />
+        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+      </p>
+
+      <p class="control has-icon has-icon-rights">
+        <input class="input" name="linkto-Channel" type="url" ng-model="channel.url" placeholder="YouTube User Url" required />
+        <i class="fa fa-youtube" aria-hidden="true"></i>
+      </p>  
+
+      <p class="control">
+        <button class="button is-primary" type="submit">Add Channel</button>
+        <button class="button is-link">Cancel</button>
+      </p>
+  </div>
+  </form>
+
+  <div class="box" ng-repeat="subs in add.subscriptions">
+    
+</div>
 </div>

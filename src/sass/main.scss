@@ -9,12 +9,18 @@ body{
     justify-content: space-around;
     padding-top: 47px;
     display: flex;
+    flex-direction: row;
+}
+
+.form-content{
+    display: flex;
     flex-direction: column;
 }
 .boxed{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     display: inline-block;
+    width: 100%;
 }
 
 h3{
@@ -27,20 +33,28 @@ h3{
 
 h1{
     text-align: center;
-    color: gray;
+    color: brown;
     font-family: 'Cinzel', serif;
 }
 
 .box{
 	width: 570px;
+    display: flex;
+    flex-direction: column;
+    display: inline-block;
     // float: left;
     margin: 0px;
-    margin-left: 39px;
+    margin-left: 20px;
+    margin-right: 20px;
     display: inline-block;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+        height: 331px;
 
+}
+.box:not(:last-child) {
+    margin-bottom: 40px;
 }
 
 .nav-left{
@@ -109,6 +123,22 @@ select{
     }
 }
 
+.desc{
+    font-family: 'Cinzel', serif;
+    text-decoration: none;
+    color: black;
+    margin-top: -263px;
+    margin-left: 249px;
+    display: inline-block;
+    // margin-bottom: 50px;
+}
+.buttonTop{
+    margin-left: -71px;
+    margin-bottom: 57px;
+    background-color: brown;
+}
+
+
 // .bgImg{
 //     opacity: 0.5;
 //     filter: alpha(opacity=50);
@@ -118,16 +148,153 @@ select{
 //     }
 // }
 
-.comtList{
-    display:none;
-    &:hover{
-    display:block;
-    }
+li .comtList{
+    margin-top: 102px;
+}
+.box form{
+    display: flex;
+    flex-direction: column;
 }
 
-textarea{
+h3.title {
+    text-shadow: 0 0 4px white, 0 0 4px white, 0 0 6px white, 0 0 4px white, 0 0 10px white, 0 2px 3px black;
+    text-align: center;
+    word-break: normal;
+}
+
+a:hover h3.title {
+    font-weight: bold;
+}
+
+form textarea{
     width: 510px;
+    color: black;
     height: 59px;
     display: flex;
 }
+.message-header{
+    margin-top: 80px;
+}
+.rating{
+    font-family: 'Cinzel', serif;
+    margin-left: 69px;
+}
 
+.showComt{
+    font-family: 'Cinzel', serif;
+    display: flex;
+    justify-content: center;
+    border-radius: 15px 50px 30px;
+    border: 1px solid black;
+    width: 238px;
+    background: beige;
+    color: black;
+    margin-left: 141px;
+}
+
+.button{
+    background-color: gray;
+    border-width: 0px;
+    color: black;
+    font-size: 18px;
+    font-family: 'Cinzel', serif;
+}
+// .channels{
+//     width: 578px;
+//     padding: 0px;
+//     // display: inline-block;
+// }
+.channels{
+    width: 48%;
+    padding: 0px;
+    float: left;
+    box-sizing: border-box;
+    margin: 0 1% 2%;
+    overflow: hidden;
+}
+.channelContent{
+    padding: 0px;
+    // display: flex;
+    // flex-direction: row;
+    // display: inline-block;
+}
+
+.writeup{
+    color: black;
+}
+
+.footer {
+    background: none;
+    padding: 0px 0px 0px;
+}
+
+hr{
+    border-top: 1px solid black;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.subscribe-container {
+    text-align: center;
+
+}
+.category-container {
+    width: 1140px;
+}
+
+.channel-content-container{
+    // display: flex;
+    // flex-direction: row;
+}
+
+// .subscribe-container{
+//     display: flex;
+//     justify-content: center;
+// }
+
+#subscribe-button{
+    margin: 10px auto;
+    padding: 0px;
+    background-color: gray;
+    border-width: 0px;
+    color: black;
+}
+#channel-box1{
+    display: flex;
+    flex-direction: column;
+}
+
+.loading {
+    width: 35%;
+    background: #141414;
+    border-radius: 20px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: 40px;
+    h2 {
+        color: white;
+    }
+    img {
+        width: 150px;
+    }
+}
+
+.homePage{
+     font-family: 'Cinzel', serif;
+     width: 296px;
+    height: 348px;
+}
+// .profile{
+//     display: inline-block;
+//     justify-content: space-around;
+//     padding-top: 47px;
+//     display: flex;
+//     flex-direction: row;
+// }
+// // a:hover{
+//     text-decoration: none;
+// }

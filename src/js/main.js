@@ -7,6 +7,7 @@ import { routerConfig } from './route'
 
 import { HomeController } from './controller/home';
 import { CategoryController } from './controller/category';
+import { ChannelController } from  './controller/channels'
 import { LayoutController } from './controller/layout';
 import { AddController } from './controller/add';
 import { CategoryService } from './services/categoryservice';
@@ -27,6 +28,7 @@ angular
   .config(routerConfig)
   .run(run)
   .controller('CategoryController', CategoryController)
+  .controller('ChannelController', ChannelController)
   .controller('LayoutController', LayoutController)
   .controller('HomeController', HomeController)
   .controller('AddController', AddController)

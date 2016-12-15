@@ -45,7 +45,7 @@ function AddController ($state, $stateParams, CategoryService, ChannelService) {
   		CategoryService.updateCategory(category).then((resp) => {
   			vm.background = resp.background;
   			console.log(resp)
-  			$state.go('root.category',{id:category.id})
+  			$state.go('root.home',{id:category.id})
   		})
   	}
 

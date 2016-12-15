@@ -3,6 +3,7 @@ function ChannelService ($http, SERVER, CategoryService) {
 	this.addChannel = addChannel;
 	this.getChannels = getChannels;
 	this.getThumbnails = getThumbnails;
+	this.getSingleChannel = getSingleChannel;
 
 	function addChannel (channel) {
 		console.log(SERVER)
@@ -10,7 +11,12 @@ function ChannelService ($http, SERVER, CategoryService) {
 	}
 
 	function getChannels (id) {
+		console.log(`${SERVER}categories/${id}`)
 		return $http.get(`${SERVER}categories/${id}`);
+	}
+
+	function getSingleChannel (id) {
+		return $http.get(`${SERVER}channels/${id}`);
 	}
 
 	function getThumbnails (id) {

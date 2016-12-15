@@ -1,5 +1,5 @@
-
-function ProfileController ($state, $stateParams, CategoryService, ChannelService, SubscriberService) {
+import api_key from "../token";
+function ProfileController ($http, $state, $stateParams, CategoryService, ChannelService, SubscriberService) {
 
 	let vm = this;
 
@@ -13,9 +13,9 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
   			console.log(resp.data);
   			vm.categories = resp.data;
   		});
-
-      init()
   	}
+
+    init();
 
   	function createUser (pin) {
     	CategoryService.createUser(pin).then((resp) => {
@@ -30,11 +30,32 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
     	});
   	};
 
+    function getThumbnails (channel) {
+
+      $http({
+        method: 'GET',
+        url:'https://www.googleapis.com/youtube/v3/channels',
+        params: {
+          part: 'snippet',
+          id: channel.google_id,
+          key: api_key
+        }
+      }).then((resp) => {
+        channel.snippet = resp.data.items[0].snippet;
+        console.log(resp)
+      }).catch(error => {
+        // console.log(error)
+      });
+    } 
+
     function initSubscript (subs) {
       SubscriberService.getSubscribers().then((resp) =>{
 
         vm.subscriptions = resp.data;
         console.log(vm.subscriptions)
+        vm.subscriptions.forEach(function(channel) {
+          getThumbnails(channel);
+        })
         // console.log(vm.getSubscribers)
       })
 
@@ -44,5 +65,5 @@ function ProfileController ($state, $stateParams, CategoryService, ChannelServic
 
 };
 
-ProfileController.$inject = ['$state', '$stateParams', 'CategoryService', 'ChannelService', 'SubscriberService'];
+ProfileController.$inject = ['$http','$state', '$stateParams', 'CategoryService', 'ChannelService', 'SubscriberService'];
 export { ProfileController };

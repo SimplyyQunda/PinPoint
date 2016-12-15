@@ -1,43 +1,26 @@
 
-<div>  
-	<button ng-click="category.getSubscriber()" class="button is-success">SUBSCRIBE</button>
+
+<div class="category-container">
+	<div class="subscribe-container">
+		<button ng-click="category.getSubscriber()" id="subscribe-button" class="button is-success buttonTop">SUBSCRIBE</button>
+	</div>
+	<div class="channel-content-container">
+		<div class="channelContent" ng-repeat="channel in category.channels">
+			<div class="box channels" id="channel-box1">
+				<h3> {{ channel.title }} </h3>
+				<div class="img-plus-rating">
+					<a href="#/channels/{{ channel.id }}"><img ng-src="{{channel.snippet.thumbnails.high.url}}"></a>
+					<div class="rating">
+						<i title="upVotes" ng-click="category.rateChannel(channel.id,1)" class="fa fa-thumbs-up fa-2x"></i>
+						<span>Rate: {{ channel.score }}</span>
+						<i title="downVotes" ng-click="category.rateChannel(channel.id,-1)" class="fa fa-thumbs-down fa-2x"></i>
+		            </div>
+	            </div>
+
+				<div class="desc">
+					<span class="writeup">{{channel.snippet.description}}</span>
+				</div>
+		  	</div>
+		</div> 
+	</div>
 </div>
-
-<div class="channelContent" ng-repeat="channel in category.channels">
-	<ul class="box channels">
-		<li>
-			<h3> {{ channel.title }} </h3>
-			<a href="{{channel.url}}"><img ng-src="{{channel.snippet.thumbnails.high.url}}"></a>
-
-		</li>
-		<li class="comtList">
-			<span class="comment" ng-repeat="comment in category.comments">{{ comment.text }}<hr></span>
-		</li>
-		<li>
-			<article class="message is-primary">
-			  <div class="message-header">
-			  <h1>Penny for Thought...</h1>
-			  	<form ng-submit="category.addComment(comment)">
-				  	<textarea ng-model="comment.text">
-				  	</textarea>
-				  	<input type="hidden"
-				  	  ng-model="comment.channel_id"
-				  	  ng-init="comment.channel_id = channel.id">
-				  	<button class="button is-success" type="submit">Submit</button>
-			  	</form>
-			  </div>
-			</article>
-			<li>
-				<div>
-					<i title="upVotes" ng-click="category.rateChannel(channel.id,1)" class="fa fa-arrow-circle-up fa-2x"></i>
-					<h1>{{ score }}</h1>
-					<i title="downVotes" ng-click="category.rateChannel(channel.id,-1)" class="fa fa-arrow-circle-down fa-2x"></i>
-                </div>
-			</li>
-
-			<article class="videos" ng-repeat="video in category.videos">
-					<youtube-video video-id="video.id.videoId" player-width="'100%'" player-height="'300px'"></youtube-video>
-			</article>
-		</li>
-  	</ul>
-</div>  

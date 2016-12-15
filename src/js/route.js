@@ -36,6 +36,13 @@ function routerConfig ($stateProvider, $urlRouterProvider){
 	      templateUrl: 'templates/category.tpl.html',
 	      controller: 'CategoryController as category'
 	    })
+
+	     .state('root.channels', {
+	      url: '/channels/:id',
+	      templateUrl: 'templates/channels.tpl.html',
+	      controller: 'ChannelController as channel'
+	    })
+
 	    .state('root.register', {
 	      url: '/register',
 	      templateUrl: 'templates/register.tpl.html',
