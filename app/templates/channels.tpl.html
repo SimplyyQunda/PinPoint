@@ -1,0 +1,27 @@
+<div>
+	<div class="showComt" ng-if="!channel.showComments" ng-click="channel.showComments = !channel.showComments">
+		Click here to show comments.
+	</div>
+	<div class="comtList" ng-if="channel.showComments">
+		<span class="comment" ng-repeat="comment in channel.comments">{{ comment.text }}<hr></span>
+		<button class="button" ng-click="channel.showComments = !channel.showComments">hide comments...</button>
+	</div>
+
+	<article class="message is-primary">
+		<div class="message-header">
+			<h3>Penny for Thought...</h3>
+			  	<form ng-submit="channel.addComment(comment)">
+				  	<textarea ng-model="comment.text">
+				  	</textarea>
+				  	<input type="hidden" ng-model="comment.channel_id" ng-init="comment.channel_id = channel.id">
+				  	<button class="button" type="submit">Submit</button>
+			  	</form>
+		</div>
+	</article>
+
+	<article class="videos" ng-repeat="video in channel.getChannel.videos">
+		<youtube-video video-id="video.id.videoId" player-width="'100%'" player-height="'300px'"></youtube-video>
+	</article>	
+
+
+</div>		
