@@ -130,8 +130,9 @@ function CategoryController ($http, SERVER, $stateParams, CategoryService, Chann
 		ChannelService.getChannels($stateParams.id).then((resp) => {
 			// console.log(vm.channels)
 			vm.getChannel = resp.data;
-			vm.channels = resp.data[0].channels;
-			console.log("channels are: ", resp.data[0].channels)
+			console.log(resp.data)
+			vm.channels = resp.data.channels;
+			console.log("channels are: ", resp.data.channels)
 			if (vm.channels) vm.channels.forEach(function(channel){
 				getThumbnails(channel);
 				// getYoutubeVidz(channel);
